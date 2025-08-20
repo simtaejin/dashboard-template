@@ -1,5 +1,7 @@
 // 회원 관리 페이지 JavaScript
 
+import { showToast } from './utils/toast.js';
+
 // 샘플 회원 데이터
 const sampleMembers = [
     {
@@ -305,24 +307,6 @@ function deleteMember() {
         // 성공 메시지 표시 (간단한 알림)
         showToast('회원이 성공적으로 삭제되었습니다.', 'success');
     }
-}
-
-// 토스트 알림
-function showToast(message, type = 'info') {
-    // 간단한 토스트 알림 구현
-    const toast = document.createElement('div');
-    toast.className = `fixed top-4 right-4 px-4 py-2 rounded-lg text-white z-50 transition-opacity duration-300 ${
-        type === 'success' ? 'bg-green-500' : 
-        type === 'error' ? 'bg-red-500' : 'bg-blue-500'
-    }`;
-    toast.textContent = message;
-
-    document.body.appendChild(toast);
-
-    setTimeout(() => {
-        toast.style.opacity = '0';
-        setTimeout(() => document.body.removeChild(toast), 300);
-    }, 3000);
 }
 
 // 모달 닫기 이벤트
